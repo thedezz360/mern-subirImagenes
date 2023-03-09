@@ -1,0 +1,51 @@
+###modulos
+
+##modulos principales
+
+#express 
+permite crear rutas o url, para pedir informacion desde 
+una aplicacion cliente.
+
+#express-fileupload 
+middleware para subir archivos, en este caso para las imagenes, 
+es como un plugin o modulo extra que se le añade a express
+
+#mongoose 
+para conectarnos a mongoDB, 
+y definir un esquema con el cual validar los datos
+
+#cloudinary
+cloudinary es un servicio que nos permite guardar imagenes en su propio servidor
+
+
+##modulos secundarios 
+
+#dotenv 
+para crear variables de entorno
+
+#fs-extra 
+permite manipular y manejar archivos del sistema con promesas, 
+cosa que no nos permite el modulo fs de nodejs
+
+#http-error 
+permite enviar mensajes de error personalizados al cliente
+
+#morgan
+para ver por consola las peticiones que recibimos
+
+#nodemon 
+para que el servidor se reinicie cuando hacemos cambios en el codigo del servidor
+
+
+###notes
+
+-para arrancar el servidor -> node server/index.js
+
+-para manejar los modulos con import y export y no con require, 
+debemos agregar en el package.json -> "type":"module"
+
+-una vez instalado nodemon, vamos al package.json y en los scripts, 
+agregamos -> "dev": "nodemon server/index.js" 
+(le indicamos a nodemon donde esta el archivo que arranca el servidor)
+ahora ya podriamos arrancar el servidor escribiendo -> npm run dev
+
