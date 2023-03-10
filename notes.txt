@@ -49,3 +49,21 @@ agregamos -> "dev": "nodemon server/index.js"
 (le indicamos a nodemon donde esta el archivo que arranca el servidor)
 ahora ya podriamos arrancar el servidor escribiendo -> npm run dev
 
+-cuando se importa un modulo propio hay que poner su extension, ej: .js
+
+
+##configurar linter
+
+- npm i eslint -D
+- ./node_modules/.bin/eslint --init  o  npm init @eslint/config
+- en el archivo .eslintrc.cjs -> 
+"env": {
+    "browser": true,
+    "amd": true,
+    "node": true
+}
+
+-podemos configurar que el editor nos lintee el codigo cuando guardamos ,
+tambien podemos configurar un comando para hacerlo manualmente
+en el package.json , en scripts ->
+"lint": "eslint ."

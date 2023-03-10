@@ -1,6 +1,17 @@
-//archivo principal desde donde arranca toda la aplicacion
-import express from "express";
-const app = express();
+// aca llamamos la configuracion de express, de la base de datos
+// y arracamos la aplicacion
 
-app.listen(3000)
-console.log('running on port 3000');
+
+//importamos la configuracion de express
+// eslint-disable-next-line no-unused-vars
+import app from "./app.js";
+//importamos la conexion a la base de datos
+import { connectDB } from "./db.js";
+
+
+
+connectDB();
+
+
+
+//VIDEO 41:31
