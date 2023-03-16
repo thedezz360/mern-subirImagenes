@@ -13,9 +13,9 @@ router.get("/posts", getPosts);
 //crea una nueva publicacion
 router.post("/posts", createPost);
 //actualizamos un post
-router.put("/posts", updatePost);
+router.put("/posts/:id", updatePost);
 //eliminar publicacion
-router.delete("/posts", deletePost);
+router.delete("/posts/:id", deletePost);
 //devulve solo una publicacion
 router.get("/posts/:id", getPost);
 

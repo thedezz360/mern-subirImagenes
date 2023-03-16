@@ -1,4 +1,6 @@
-###modulos
+####modulos
+
+###modulos server
 
 ##modulos principales
 
@@ -35,6 +37,30 @@ para ver por consola las peticiones que recibimos
 
 #nodemon 
 para que el servidor se reinicie cuando hacemos cambios en el codigo del servidor
+
+
+###modulos client
+
+#react-router-dom
+para las rutas
+
+#tailwind
+framework css
+
+#react-hot-toast
+para las notificaciones
+
+#axios
+para enviar peticiones http al servidor
+
+#react-icons 
+para los iconos
+
+#formik
+para validacion de formularios
+
+#yup
+trabaja junto con formik, para especificar que y como deseamos validar
 
 
 ###notes
