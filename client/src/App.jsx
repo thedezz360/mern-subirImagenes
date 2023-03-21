@@ -14,8 +14,10 @@ function App() {
 						<Routes>
 							<Route path="/" element={<HomePage />} />
 							<Route path="/new" element={<PostForm />} />
+							<Route path="/posts/:id" element={<PostForm />} />
 							<Route path="*" element={<NotFoundPage />} />
 						</Routes>
+						{/* para las notificaciones */}
 						<Toaster />
 					</PostProvider>
 				</React.StrictMode>
@@ -26,4 +28,5 @@ function App() {
 
 export default App;
 
-//video: 3:34
+//video: 4:02
+//posible fallo 4:02

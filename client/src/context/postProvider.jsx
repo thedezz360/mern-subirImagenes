@@ -1,8 +1,10 @@
 import React, { useState, useContext, createContext, useEffect } from "react";
 import {
-	getPostRequest,
+	getPostsRequest,
 	createPostRequest,
 	deletePostRequest,
+	getPostRequest,
+	updatePostRequest,
 } from "../api/posts";
 import PropTypes from "prop-types";
 
@@ -29,9 +31,13 @@ export const PostProvider = ({ children }) => {
 	 * obtener todos los post
 	 */
 	const getPosts = async () => {
-		const res = await getPostRequest();
-		console.log(res);
+		const res = await getPostsRequest();
 		setPosts(res.data);
+	};
+
+	const getPost = async (id) => {
+		const res = await getPostRequest(id);
+		return res.data;
 	};
 
 	/**
@@ -39,10 +45,14 @@ export const PostProvider = ({ children }) => {
 	 * sera asincrona ya que enviaremos datos al backend
 	 */
 	const createPost = async (post) => {
-		const res = await createPostRequest(post);
-		console.log(res.data);
-		//res.data tiene el id
-		setPosts([...posts, res.data]);
+		try {
+			const res = await createPostRequest(post);
+			console.log(res.data);
+			//res.data tiene el _id
+			setPosts([...posts, res.data]);
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	/**
@@ -61,9 +71,30 @@ export const PostProvider = ({ children }) => {
 		}
 	};
 
+	const updatePost = async (id, newFields) => {
+		try {
+			const res = await updatePostRequest(id, newFields);
+			console.log(res);
+			//si coincide actualizamos su valor, si no lo dejamos con el valor anterior
+			setPosts(
+				posts.map((post) => (post._id === res.data._id ? res.data : post))
+			);
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	return (
 		<postContext.Provider
-			value={{ posts, setPosts, getPosts, createPost, deletePost }}
+			value={{
+				posts,
+				setPosts,
+				getPosts,
+				createPost,
+				deletePost,
+				getPost,
+				updatePost,
+			}}
 		>
 			{children}
 		</postContext.Provider>
