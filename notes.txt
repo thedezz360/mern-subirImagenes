@@ -98,9 +98,25 @@ en el package.json , en scripts ->
 ###despliegue de la aplicacion
 
 para este proyecto el backend devolvera el frontend, asi que lo
-guardaremos todo en un mismo servidor como heroku y para la base de datos
+guardaremos todo en un mismo servidor como railway y para la base de datos
 mongodb atlas 
 
 credenciales de la base de datos
 user: dezz
-password: zapata38
+password: zapata
+hay que obtener la mongodb_uri de mongodb atlas
+y establecerla como una variable en railway
+
+en el package.json de la app agregar los script 
+"build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client && rm -rf client/node_modules",
+-NPM_CONFIG_PRODUCTION=false, ya que si no instala vite al ser un modulo de desarrollo
+-npm install --prefix client, ejecuta el install del cliente
+-npm run build --prefix client, ejecuta el build del cliente para compilar la aplicaion 
+-rm -rf client/node_modules, no se si se necesita, eliminaria la carpeta node_modules
+
+"start": "node server/index.js"
+-se especifica el punto de inicio de la app
+
+url de la app https://mern-subirimagenes-production.up.railway.app/
+
+
