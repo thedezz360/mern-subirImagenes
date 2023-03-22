@@ -45,4 +45,9 @@ app.use(postsRoutes);
 console.log(__dirname);
 app.use(express.static(join(__dirname, "../client/dist" )));
 
+//apaño para crear un post desde la url
+app.get("*",(req,res)=>{
+	res.sendFile(join(__dirname, "../client/dist/index.html"));
+});
+
 export default app;

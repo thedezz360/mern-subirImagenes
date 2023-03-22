@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nodemon server/index.js --ignore client",
     "lint": "eslint .",
-		"build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+		"build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client && rm -rf client/node_modules",
 		"start": "node server/index.js"
   },
   "keywords": [],
