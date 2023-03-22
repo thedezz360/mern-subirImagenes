@@ -2,14 +2,15 @@
 
 import axios from "axios";
 
-const urlServer = "http://localhost:3000";
+//const urlServer = "http://localhost:3000";
 
 /**
  * obtenemos todos los post
  * @returns todos los posts
  */
 export const getPostsRequest = async () =>
-	await axios.get(`${urlServer}/posts`);
+	//await axios.get(`${urlServer}/posts`);
+	await axios.get("/posts");
 //export const getPostRequest = async () => await axios.get("/post");
 
 /**
@@ -18,7 +19,8 @@ export const getPostsRequest = async () =>
  * @returns el post que pertenece al id
  */
 export const getPostRequest = async (id) =>
-	await axios.get(`${urlServer}/posts/${id}`);
+	//await axios.get(`${urlServer}/posts/${id}`);
+	await axios.get(`/posts/${id}`);
 
 /**
  * creamos un post
@@ -34,7 +36,13 @@ export const createPostRequest = async (post) => {
 		form.append(key, post[key]);
 	}
 
-	return await axios.post(`${urlServer}/posts`, form, {
+	// return await axios.post(`${urlServer}/posts`, form, {
+	// 	headers:{
+	// 		"Content-Type":"multipart/form-data"
+	// 	}
+	// });
+
+	return await axios.post("/posts", form, {
 		headers:{
 			"Content-Type":"multipart/form-data"
 		}
@@ -47,7 +55,8 @@ export const createPostRequest = async (post) => {
  * @returns respuesta del server
  */
 export const deletePostRequest = async (id) =>
-	await axios.delete(`${urlServer}/posts/${id}`);
+	//await axios.delete(`${urlServer}/posts/${id}`);
+	await axios.delete(`/posts/${id}`);
 
 /**
  * actualizamos un post
@@ -55,4 +64,5 @@ export const deletePostRequest = async (id) =>
  * @param {*} newFields los valores con los qu se actualizara el post
  */
 export const updatePostRequest = async (id, newFields) =>
-	await axios.put(`${urlServer}/posts/${id}`, newFields);
+	//await axios.put(`${urlServer}/posts/${id}`, newFields);
+	await axios.put(`/posts/${id}`, newFields);
