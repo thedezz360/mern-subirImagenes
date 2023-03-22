@@ -93,3 +93,14 @@ ahora ya podriamos arrancar el servidor escribiendo -> npm run dev
 tambien podemos configurar un comando para hacerlo manualmente
 en el package.json , en scripts ->
 "lint": "eslint ."
+
+
+###despliegue de la aplicacion
+
+para este proyecto el backend devolvera el frontend, asi que lo
+guardaremos todo en un mismo servidor como heroku y para la base de datos
+mongodb atlas 
+
+credenciales de la base de datos
+user: dezz
+password: zapata38

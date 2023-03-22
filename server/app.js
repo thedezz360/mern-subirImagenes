@@ -6,11 +6,19 @@ import fileUpload from "express-fileupload";
 import postsRoutes from "./routes/posts.routes.js";
 import cors from "cors";
 
+//para obtener la ruta absoluta de la carpeta server
+import {dirname, join} from "path";
+import {fileURLToPath} from "url";
+
 const app = express();
+
+//obtenemos la ruta de la carpeta server
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 //configuramos quien tiene acceso al server
 const corsOptions = {
-	origin: "http://127.0.0.1:5173",
+	//origin: "http://127.0.0.1:5173",
+	origin: "*",
 	credentials: true, //access-control-allow-credentials:true
 	optionSuccessStatus: 200,
 };
@@ -31,5 +39,10 @@ app.use(
 
 //routes
 app.use(postsRoutes);
+
+//servimos desde el servidor los archivos estaticos generados 
+//al hacer el build de la aplicacion
+console.log(__dirname);
+app.use(express.static(join(__dirname, "../client/dist" )));
 
 export default app;
