@@ -106,6 +106,8 @@ user: dezz
 password: zapata
 hay que obtener la mongodb_uri de mongodb atlas
 y establecerla como una variable en railway
+tambien hay que establecer en atlas la ip 0.0.0.0/0 
+para recibir las peticiones de cualquier ip
 
 en el package.json de la app agregar los script 
 "build": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client && rm -rf client/node_modules",
