@@ -12,4 +12,4 @@ console.log("running on port ", PORT);
 
 connectDB();
 
-//VIDEO 1:44:40
+
